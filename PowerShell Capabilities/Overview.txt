@@ -1,2 +1,16 @@
 An overview of powerful PS capabilities
 
++ Microsoft Windows, overview
+
+services (start, stop, startup type)
+sqlcmd
+copy, move files
+copy tables
+
+DeploySQL
+
+Deploy App
+
+Update Config
+
+Backup Files
