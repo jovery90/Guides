@@ -16,6 +16,17 @@ someVar = 123
 def my_function():
   #tabbed over, then logic
 
+#classes
+class Person:
+  def __init__(self, age, name):
+    self.age = age
+    self.name = name
+
+person1 = Person(14, "Bob")
+
+print(person1.age)
+print(person1.name)
+
 #string interpolation
 print(“Name:”, name)
 
