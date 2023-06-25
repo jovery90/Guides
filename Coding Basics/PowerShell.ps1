@@ -1,5 +1,12 @@
 # This doc contains the basics for PowerShell
 
+#comments
+# Single-line comment
+
+<#
+Multi-line comment
+#>
+
 #vars
 $someVar
 
