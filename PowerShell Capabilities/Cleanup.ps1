@@ -8,4 +8,4 @@ Param(
 
 $EndDate = (Get-Date).AddDays(-$Days)
 
-Get-ChildOtem -Path $FolderPath -File | Where-Object { $_.LastWriteTime -lt $EndDate } | Remove-Item -Force -Verbose
+Get-ChildItem -Path $FolderPath -File | Where-Object { $_.LastWriteTime -lt $EndDate } | Remove-Item -Force -Verbose
