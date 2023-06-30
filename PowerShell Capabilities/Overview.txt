@@ -2,6 +2,8 @@ An overview of powerful PS capabilities
 
 + Microsoft Windows, overview
 
+(Done) CleanFiles
+
 services (start, stop, startup type)
 sqlcmd
 copy, move files
