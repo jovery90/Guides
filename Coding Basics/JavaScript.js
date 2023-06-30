@@ -15,7 +15,7 @@ var someVariable = 123
 function SomeFunction(){}
 
 //string interpolation
-var StringInterpolation = This is a string…” + someVar
+var StringInterpolation = "This is a string…” + someVar
 
 //conditionals
 if, else if, else
