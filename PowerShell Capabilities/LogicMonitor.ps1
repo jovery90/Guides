@@ -2,6 +2,8 @@
 # https://www.logicmonitor.com/support/rest-api-developers-guide/v1/sdts/update-sdts
 # Requires an access ID and Key, as well as the company's name
 
+# You can update $Type to ServiceSDT, $MonitoredService to the URL, then the $Data line replace "deviceDisplayName" with "serviceName" - for Website SDTs
+
 $MonitoredService = "ServerName"
 $SDTLength = 60 #Minutes
 $SDTMessage = "SDT Generic Message"
