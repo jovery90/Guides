@@ -41,7 +41,7 @@ $EndDateEpoch = [Math]::Round((New-TimeSpan -start (Get-Date -Date "1/1/1970") -
 $Data = '{"sdtType":'+$SDTType+',"type":"'+ $Type +'","deviceDisplayName":"'+$MonitoredService+'","startDateTime":'+$StartDateEpoch +',"$endDateTime":'+ $EndDateEpoch +',"comment":"'+$SDTMessage+'"}'
 
 # Construct URL
-$URL = 'https://' + $CompanyName + '.llgicmonitor.com/santaba/rest' + $ResourcePath
+$URL = 'https://' + $CompanyName + '.logicmonitor.com/santaba/rest' + $ResourcePath
 
 # Get current  time in milliseconds
 $Epoch = [Math]::Round((New-TimeSpan -start (Get-Date -Date "1/1/1970") -end (Get-Date).ToUniversalTime()).TotalMilliseconds)
@@ -54,7 +54,7 @@ $HMAC = New-Object System.Security.Cryptography.HMACSHA256
 $HMAC.Key = [Text.Encoding]..UTF8.GetBytes($AccessKey)
 $SignatureBytes = $HMAC.ComputeHash([Text.Encoding]::UTF8.GetBytes($RequestVars))
 $SignatureHex = [System.BitConverter]::ToString($SignatureBytes) -replace '-'
-$Signature = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($signatureHex.ToLower()))
+$Signature = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($SignatureHex.ToLower()))
 
 # Construct Headers
 $Auth = 'LMv1' + $AccessID + ':' + $Signature + ':' + $Epoch
@@ -63,12 +63,12 @@ $Headers.Add("Authorization",$Auth)
 $Headers.Add("Content-Type",'application/json')
 
 # Make Request
-$Responce = Invoke-RestMethod -Uri $URL -Method $HTTPVerb -Body $Data -Header $Headers
+$Response = Invoke-RestMethod -Uri $URL -Method $HTTPVerb -Body $Data -Header $Headers
 
 # Print status and body of response
-$Status = $Responce.status
-$Body = $Responce.data| ConvertTo-Json -Depth 5
+$Status = $Response.status
+$Body = $Response.data| ConvertTo-Json -Depth 5
 
 # Write Query:$Response
-Write-Output "Stauts:$Status"
+Write-Output "Status:$Status"
 Write-Output "Response:$Body"
