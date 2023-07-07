@@ -1,0 +1,4 @@
+It can be very important to check if a previous action failed
+
+1.  You can check the $LASTEXITCODE variable (if it's 0, there are no errors)
+2.  Try, Catch (perform the action in a Try block)
