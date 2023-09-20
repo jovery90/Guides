@@ -15,10 +15,23 @@ $someVar
 function SomeFunction(){}
 
 #string interpolation
-"Some string and a var - $(someVar)"
+"Some string and a var - $($someVar)"
+
+#special char string interpolation
+"Some string and a var - ${someVar}"
+
 
 #conditionals
 if, elseif, else
 
 #operators
 -eq, , -ne, -lt, -gt
+
+#initialize array
+$array = @()
+
+#loop through array
+For ($i=0; $i -le 5; $i++) {
+    "Number is: "+$i
+    }
+
