@@ -34,7 +34,7 @@ if, elseif, else
 #initialize array
 $array = @()
 
-#loop through array
+#looping
 For ($i=0; $i -le 5; $i++) {
     "Number is: "+$i
     }
