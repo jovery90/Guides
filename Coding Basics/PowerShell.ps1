@@ -39,3 +39,8 @@ For ($i=0; $i -le 5; $i++) {
     "Number is: "+$i
     }
 
+#array methods
+.RemoveAt    #array.RemoveAt($index)
+.Remove      #array.Remove($object)
+$newArray = "a", "b", "c", "d"
+$newArray = $oldArray[0, 1, 3] #creating new array based on just 3 values of old array
