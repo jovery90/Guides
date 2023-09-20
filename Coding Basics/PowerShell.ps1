@@ -20,6 +20,10 @@ function SomeFunction(){}
 #special char string interpolation
 "Some string and a var - ${someVar}"
 
+#single vs double quotes
+#single - will not process interpolation, it's literal
+#double - will process interpolation
+
 
 #conditionals
 if, elseif, else
