@@ -24,3 +24,12 @@ if, else if, else
 = != == (value) === (value and type) !== ++ -- * / += -= % < > <= >=
 
 // https://www.w3schools.com/js/js_operators.asp
+
+//event listener
+function changeHtml(tag) {
+    document.getElementById(tag).innerHTML = "Changed"
+}
+
+document.getElementById("button1").addEventListener("click", function() { changeHtml("id1") });
+
+//
