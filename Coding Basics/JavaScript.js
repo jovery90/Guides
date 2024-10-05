@@ -32,4 +32,10 @@ function changeHtml(tag) {
 
 document.getElementById("button1").addEventListener("click", function() { changeHtml("id1") });
 
-//
+//roll dice
+function DiceRoll(diceSides)
+{
+   diceNumber = Math.floor(Math.random() * diceSides) +1;
+   return diceNumber
+}
+*then simply call DiceRoll(6) as if it's a var representing a D6 roll!
