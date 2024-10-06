@@ -39,3 +39,20 @@ function DiceRoll(diceSides)
    return diceNumber
 }
 *then simply call DiceRoll(6) as if it's a var representing a D6 roll!
+
+
+//local storage
+function saveLocalStorage(tag) {
+    var forStorage = document.getElementById(tag).value
+    localStorage.setItem("someValue", forStorage)
+    alert("Stored " + localStorage.someValue)
+    document.getElementById(tag).value = null
+}
+*this is meant for an "input" tag (document.getElementById().value) - necessary for getting input out of text box.
+
+function loadLocalStorage() {
+    someStorage = localStorage.getItem("someValue")
+    document.getElementById("local1").innerHTML = someStorage
+}
+
+
