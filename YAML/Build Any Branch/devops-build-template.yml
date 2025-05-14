@@ -1,0 +1,14 @@
+#This job is called from BuildAnyBranch.yml, wired up for "Main" branch
+
+jobs:
+  - job: Build
+  steps:
+    - script: echo "Building app"
+      displayName: "Build app"
+    - script: echo $(MainTest)
+      displayName:  "Retrieve MainTest var from local project library MainVars"
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Artifact'
+      inputs:
+        PathtoPublish: '$(System.DefaultWorkingDirectory)'
+        ArtifactName: 'DevOps Build'
