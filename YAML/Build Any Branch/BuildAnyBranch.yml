@@ -1,0 +1,60 @@
+#Initial approach of being an Azure Pipeline that will call another existing template
+
+trigger: none
+
+parameters:
+- name: BranchChoice
+  displayName: Branch to build
+  type: string
+  default: dev
+  values:
+  - dev
+  - main
+  - support
+
+resources:
+  repositories:
+  - repository: DevBranch
+  name: DevOps Templates #name of project
+  type: git
+  ref: refs/heads/dev #choose what repo branch to download
+  repositories:
+  - repository: MainBranch
+  name: DevOps Templates
+  type: git
+  ref: refs/heads/main
+    repositories:
+  - repository: SupportBranch
+  name: DevOps Templates
+  type: git
+  ref: refs/heads/support
+
+stages:
+- stage: Dev
+  displayName: 'Dev Build'
+  condition: eq('${{ parameters.BranchChoice }}', 'dev')
+  variables:
+    - group: DevVars #Pull vars from selected library
+
+jobs:
+- template: devops-build-template.yml@DevBranch #choose what pipeline to run
+
+stages:
+- stage: Main
+  displayName: 'Main Build'
+  condition: eq('${{ parameters.BranchChoice }}', 'main')
+  variables:
+    - group: MainVars
+
+jobs:
+- template: devops-build-template.yml@MainBranch #choose what pipeline to run
+
+stages:
+- stage: Support
+  displayName: 'Support Build'
+  condition: eq('${{ parameters.BranchChoice }}', 'support')
+  variables:
+    - group: SupportVars
+
+jobs:
+- template: devops-build-template.yml@SupportBranch #choose what pipeline to run
